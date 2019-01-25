@@ -216,7 +216,7 @@ int main() {
       if (word.find("*") == std::string::npos) {
         lower = lower_bound(input.begin(), input.end(), word,
                             a_less_b_nchars<pre_sort_depth>);
-        upper = upper_bound(input.begin(), input.end(), word,
+        upper = upper_bound(lower, input.end(), word,
                             a_less_b_nchars<pre_sort_depth>);
 
         matches.insert(matches.begin(), lower, upper);
