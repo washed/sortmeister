@@ -146,18 +146,11 @@ class tree_node {
 
 template <size_t match_char_count>
 bool a_less_b_nchars(const std::string& a, const std::string& b) {
-  // TODO: Improve this iterator range checking!
-  auto a_end = a.cbegin() + match_char_count;
-  if (a_end >= a.cend() - 1) {
-    a_end = a.cend();
-  }
+  auto compare_length =
+      std::min(match_char_count, std::min(a.size(), b.size()));
 
-  auto b_end = b.cbegin() + match_char_count;
-  if (b_end >= b.cend() - 1) {
-    b_end = b.cend();
-  }
-
-  return std::lexicographical_compare(a.cbegin(), a_end, b.cbegin(), b_end);
+  return std::lexicographical_compare(a.begin(), a.begin() + compare_length,
+                                      b.begin(), b.begin() + compare_length);
 }
 
 void conform_entry(std::string& a) {
