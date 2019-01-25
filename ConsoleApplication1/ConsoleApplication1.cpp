@@ -187,9 +187,13 @@ int main() {
     std::cout << "Reading and inserting file: " << file << " ...";
 
     // Read into temp vector
-    std::fstream input_file{file, ios::in};
-    std::vector<std::string> input(
-        std::istream_iterator<std::string>(input_file), {});
+    std::ifstream input_file{file, ios::in};
+    std::vector<std::string> input;
+    std::string str;
+    while (getline(input_file, str)) {
+      input.emplace_back(str);
+    }
+
     input_file.close();
 
     std::cout << " done!" << '\n';
@@ -260,9 +264,12 @@ int main() {
           std::cout << "Merging " << matches.size() << " entries into "
                     << merge_in_file_path << '\n';
 
-          std::fstream merge_in_file{merge_in_file_path, ios::in};
-          std::vector<std::string> merge_in(
-              std::istream_iterator<std::string>(merge_in_file), {});
+          std::ifstream merge_in_file{merge_in_file_path, ios::in};
+          std::vector<std::string> merge_in;
+          std::string str;
+          while (getline(merge_in_file, str)) {
+            merge_in.emplace_back(str);
+          }
           merge_in_file.close();
 
           // Both the file and the input vector must be sorted! Merge them:
@@ -273,7 +280,7 @@ int main() {
           // Output file
           fs::path merge_out_file_path{merge_in_file_path};
           merge_out_file_path += temp_file_suffix_path;
-          std::fstream merge_out_file{merge_out_file_path, ios::out};
+          std::ofstream merge_out_file{merge_out_file_path, ios::out};
           for (const auto& entry : merge_out) {
             merge_out_file << entry << '\n';
           }
@@ -290,7 +297,7 @@ int main() {
           std::cout << "Writing " << matches.size() << " entries to "
                     << direct_out_file_path << '\n';
 
-          std::fstream direct_out_file{direct_out_file_path, ios::out};
+          std::ofstream direct_out_file{direct_out_file_path, ios::out};
           for (const auto& entry : matches) {
             direct_out_file << entry << '\n';
           }
@@ -311,8 +318,8 @@ int main() {
     fs::path unmatched_out_file_path{output_dir_path};
     unmatched_out_file_path /= "unmatched_";
     unmatched_out_file_path += bla.str();
-    std::fstream unmatched_out_file{unmatched_out_file_path,
-                                    ios::out | ios::app};
+    std::ofstream unmatched_out_file{unmatched_out_file_path,
+                                     ios::out | ios::app};
     for (const auto& entry : input) {
       unmatched_out_file << entry << '\n';
     }
