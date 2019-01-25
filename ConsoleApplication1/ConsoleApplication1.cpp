@@ -334,10 +334,13 @@ int main() {
 // TODO:
 /*
  +   Implement wildcard (/symbol) filter properly and without regex if possible
- +   Implement automatic batch execution for small files (load up to a certain amount of entries and then merge, instead merge every single input file)
+ +   Implement automatic batch execution for small files (load up to a certain
+ amount of entries and then merge, instead merge every single input file)
  +   Write fast search engine
  +   Improve conforming filters, put filtered stuff in a trash file
- +   Analyze behaviour seen during pre-sorted import: There seems to be always at least 1 entry being merged in to all output files. If this is true, previous was bad, or we have a bug here.
+ +   Analyze behaviour seen during pre-sorted import: There seems to be always
+ at least 1 entry being merged in to all output files. If this is true, previous
+ was bad, or we have a bug here.
  */
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
