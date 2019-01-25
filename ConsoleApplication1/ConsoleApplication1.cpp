@@ -82,24 +82,6 @@ void get_all_files(const fs::path& path_to_search,
   build_file_vector(path_to_search, files);
 }
 
-bool a_less_b_first_char(const std::string& a, const std::string& b) {
-  return (a[0] < b[0]);
-}
-
-bool a_less_b_second_char(const std::string& a, const std::string& b) {
-  return (a[1] < b[1]);
-}
-
-bool a_less_b_first_two_chars(const std::string& a, const std::string& b) {
-  if (a[0] < b[0]) {
-    return true;
-  } else if (a[0] > b[0]) {
-    return false;
-  } else {
-    return (a[1] < b[1]);
-  }
-}
-
 void uniquify_in_files(const fs::path& path_to_search) {
   std::vector<fs::path> files;
   get_all_files(path_to_search, files);
@@ -131,18 +113,6 @@ void uniquify_in_files(const fs::path& path_to_search) {
     std::cout << " done!\n";
   }
 }
-
-class tree_node {
- public:
-  tree_node() {}
-  ~tree_node() {}
-
- private:
-  const char* _name;
-
-  tree_node* _parent;
-  std::vector<tree_node*> _children;
-};
 
 template <size_t match_char_count>
 bool a_less_b_nchars(const std::string& a, const std::string& b) {
