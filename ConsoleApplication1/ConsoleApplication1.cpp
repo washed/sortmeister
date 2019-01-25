@@ -204,27 +204,8 @@ int main() {
   auto words = get_all_words<pre_sort_depth>();
   std::sort(words.begin(), words.end());
 
-  // TODO: It might be good to arrange it so that the special stuff comes at the
-  // end of the words vector!
-  /*
-  std::regex wildcard_regex("\*+");
-  std::smatch wildcard_match;
-
-  std::vector<std::string> words_with_wildcard;
-  for (auto it = words.begin(); it != words.end(); ++it) {
-    if (std::regex_search(*it, wildcard_match, wildcard_regex)) {
-      words_with_wildcard.emplace_back(it);
-    }
-  }
-  */
-
-  // const fs::path input_dir_path{"D:\\combos\\ingest\\Collection1\\merge_in"};
-  // const fs::path
-  // output_dir_path{"D:\\combos\\ingest\\Collection1\\merge_out"};
-
-  // const fs::path input_dir_path{"D:\\combos\\ingest\\test\\merge_in"};
-  const fs::path input_dir_path{"D:\\combos\\_BACKUP\\BreachCompilation\\data"};
-  const fs::path output_dir_path{"D:\\combos\\ingest\\test\\merge_out"};
+  const fs::path input_dir_path{""};
+  const fs::path output_dir_path{""};
 
   size_t total_matched_count = 0;
   size_t total_unmatched_count = 0;
