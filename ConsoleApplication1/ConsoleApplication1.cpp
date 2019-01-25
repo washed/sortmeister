@@ -341,6 +341,11 @@ int main() {
  +   Analyze behaviour seen during pre-sorted import: There seems to be always
  at least 1 entry being merged in to all output files. If this is true, previous
  was bad, or we have a bug here.
+ +   Add some statistics about read entries, unique entries in input, unique in
+ +   Do the basic string filtering directly at file read
+ +   Improve filtering
+ +   Consider replacing getline if something else is faster
+ +   Add progress indicators where possible
  */
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
