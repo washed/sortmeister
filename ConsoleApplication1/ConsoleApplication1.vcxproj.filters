@@ -27,4 +27,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\libboost_iostreams-vc141-mt-gd-x64-1_69.lib" />
+    <Library Include="lib\libboost_iostreams-vc141-mt-x64-1_69.lib" />
+  </ItemGroup>
 </Project>
